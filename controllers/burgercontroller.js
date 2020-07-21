@@ -30,10 +30,9 @@ router.post("/burgers/insertOne", function(req, res) {
 });
 
 //devour burger with updateOne 
-router.put("/burgers/updateOne/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+router.post("/burgers/updateOne/:id", function(req, res) {
   burger.updateOne(
-    condition,
+    req.params.id,
     function() {
      res.redirect("/index");
     });
