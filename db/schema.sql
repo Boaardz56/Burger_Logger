@@ -1,4 +1,3 @@
-### Schema
 
 CREATE DATABASE burgerlogger_db;
 USE burgerlogger_db;
