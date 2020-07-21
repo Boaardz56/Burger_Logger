@@ -5,7 +5,12 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
+router.get("/", function(req,res) {
+  res.redirect("/index");
+});
+
+//Index page
+router.get("/index", function(req, res) {
   //pass burger data into the function
   burger.selectAll(function(data) {
     var hbsObject = {
@@ -16,22 +21,21 @@ router.get("/", function(req, res) {
   });
 });
 
+//create a burger
 router.post("/burgers/insertOne", function(req, res) {
-  burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(data) {
+  burger.insertOne(["burger_name"], [req.body.burger_name], function() {
     // Send back the ID of the new quote
-    res.redirect("/");
+    res.redirect("/index");
   });
 });
 
+//devour burger with updateOne 
 router.put("/burgers/updateOne/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   burger.updateOne(
-    {
-      devoured: req.body.devoured
-    },
     condition,
-    function(data) {
-     res.redirect("/");
+    function() {
+     res.redirect("/index");
     });
 });
 
