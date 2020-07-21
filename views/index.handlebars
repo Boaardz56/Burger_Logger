@@ -1,38 +1,67 @@
-<h1>Burger!</h1>
+<h1 class="text-center burgerTitle">Eat-Da-Burger!
+  <img src="../public/assets/img/download.jpg">
+</h1>
 
-<h2>Cats that are not sleepy!</h2>
+<div class="container">
+  <div class="row">
+    <div class="burgerPage">
+      <ul class="customer1">
+        {{#each burgers}}
+        {{#unless devoured}}
+        <div class="notDevoured">
+          <li> {{this.burger_name}} </li>
+          <div class="pageFull">
+            <form action="burgers/updateOne/{{this.id}}?_method=PUT" method="POST">
+              <button type="submit" class="btn btn-default btn-danger devourButton">Devour it!</button>
+            </form>
+          </div>
+        </div>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+   
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devour=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers that are ready!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devour=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="bu">Burger Name:</label>
-    <input type="text" id="bu" name="name">
+    
+  <div class="boxDiv">
+    <form class="create-form" action="burgers/insertOne" method ="POST">
+      <div class="form-group">
+        <textarea placeholder="Enter name of burger you'd like to eat!" id="burgerName" name="burger_name"></textarea>
+        <br>
+        <button type = "submit" class="btn btn-lg btn-primary submitButton">Submit</button>
+      </div>
+    </form>
   </div>
 
-  <div class="form-group">
-    <label for="dev">Hungry?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Must Eat
+  <div class ="devouredComplete">
+    <ul class="customer2">
+      {{#each burgers}}
+        {{#if this.devoured}}
+        <div class="pageDevoured">
+          <li>{{this.burger_name}}</li>
+        </div>
+        {{/if}}
+        {{/each}}
+    </ul>
+  </div>
   </div>
 
-  <button type="submit">Add Burger</button>
-</form>
+  <script>
+    var count = 0;
+
+    function restart() {
+      setTimeout(function() {
+        count ++;
+
+        $(".pageDevoured").attr("id", "imgID" + count);
+
+        if (count>4) {
+          count = 0
+        }
+        restart();
+      }, 1000);
+    }
+
+    restart();
+
+  </script>
