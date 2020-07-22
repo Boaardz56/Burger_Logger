@@ -1,24 +1,17 @@
-li {
-    padding: 5px;
-    margin: 5px;
-    background: #faebd7;
-  }
+.body {
+    background-image: orange;
+}
+
   
-  .label {
-    font-weight: bold;
-  }
-  
-  .create-update-form {
-    padding: 5px;
-    margin: 5px;
-    background: aqua;
-  }
-  
-  .form-group {
-    margin-bottom: 5px;
-  }
-  
-img {
+#burgerImg {
     width: 200px;
     height: 250px;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    
 }
