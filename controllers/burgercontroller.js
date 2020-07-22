@@ -23,7 +23,7 @@ router.get("/index", function(req, res) {
 
 //create a burger
 router.post("/burgers/insertOne", function(req, res) {
-  burger.insertOne(["burger_name"], [req.body.burger_name], function() {
+  burger.insertOne(req.body.burger_name, function() {
     // Send back the ID of the new quote
     res.redirect("/index");
   });

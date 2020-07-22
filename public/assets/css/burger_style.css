@@ -1,9 +1,20 @@
-.body {
-    background-image: orange;
+#body {
+    background-color:sandybrown;
+
 }
 
-  
-#burgerImg {
+.burgerTitle {
+    font-family: 'Staatliches', cursive;    
+}
+
+#burgerName {
+    width: 200px;
+    height: 100px;
+    text-align: center;
+}
+
+.burgerImg {
+    opacity: 0.5;
     width: 200px;
     height: 250px;
 }

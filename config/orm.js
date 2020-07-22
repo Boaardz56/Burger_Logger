@@ -4,9 +4,8 @@ var connection = require("../config/connection.js");
 
 // Object for all our SQL statement functions.
 var orm = {
-  selectAll: function(tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
-    connection.query(queryString, function(err, result) {
+  selectAll: function(cb) {
+    connection.query("SELECT * FROM burgers", function(err, result) {
       if (err) throw err;
 
       cb(result);
@@ -28,8 +27,8 @@ var orm = {
   updateOne: function(burgerID, cb) {
     connection.query("UPDATE burgers SET ? WHERE ?",
       [
-        {devoured: true},
-        {id: burgerID}
+        { devoured: true },
+        { id: burgerID }
       ],
       function(err, result) {
       if (err) throw err;
