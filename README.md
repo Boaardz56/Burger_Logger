@@ -12,6 +12,8 @@
 
 This app utilized [Heroku](https://still-hamlet-74091.herokuapp.com/index) to deploy. If you need more information on how to work with this application, please see [Heroku’s Account Verification Information](https://devcenter.heroku.com/articles/account-verification) for more details.
 
+![BurgerGif](public/assets/img/burger.gif)
+
 ## Portfolio Update
 
 This app was added to my personal [portfolio](https://boaardz56.github.io/Portfolio/), take a look!
