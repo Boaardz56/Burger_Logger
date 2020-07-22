@@ -1,6 +1,5 @@
 #body {
     background-color:sandybrown;
-    display: flex;
 
 }
 
@@ -26,6 +25,7 @@ p{
 
 .submitFont {
     text-align: center;
+    font-family: "Staatliches", 'cursive';
 }
 
 
